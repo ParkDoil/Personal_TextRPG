@@ -14,8 +14,8 @@ public: // 기본 메소드 섹션
 public:
 	void Setting(Player& player)
 	{
-		// 몬스터 최대 체력은 플레이어 공격력의 3~10배
-		_maxHP = player._power * (rand() % 8 + 3);
+		// 몬스터 최대 체력은 플레이어 공격력의 3~15배
+		_maxHP = player._power * (rand() % 13 + 3);
 		// 몬스터 공격력은 플레이어 레벨의 4~7배
 		_power = player._level * (rand() % 4 + 4);
 		_health = _maxHP;
