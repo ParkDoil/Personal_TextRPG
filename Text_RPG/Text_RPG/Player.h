@@ -46,11 +46,6 @@ public:
 			{
 				break;
 			}
-			if (input == 2)
-			{
-				_health  -= 20;
-				_stamina += 10;
-			}
 		}
 	}
 

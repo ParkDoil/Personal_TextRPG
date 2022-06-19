@@ -65,7 +65,7 @@ public:
 			if ((10 * input > player._holedGold))
 			{
 				cout << "골드가 모자랍니다.";
-				Sleep(200);
+				Sleep(500);
 			}
 			else
 			{

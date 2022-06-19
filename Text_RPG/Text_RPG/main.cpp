@@ -1,11 +1,15 @@
 #include "Common.h"
+#pragma comment (lib, "winmm.lib")
+#include <mmsystem.h>;
 
 #include "GameInfoPrint.h"
 #include "GamePlay.h"
 
+
 int main()
 {
 	srand(time(NULL));
+	PlaySound(TEXT("Leonhart.wav"), NULL, SND_ASYNC | SND_LOOP);
 	
 	int input = 0;
 	bool isEnd = false;
