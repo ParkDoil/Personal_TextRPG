@@ -19,8 +19,8 @@ public:
 		// 몬스터 공격력은 플레이어 레벨 + 랜덤 1~10
 		_power = player._level + (rand() % 10 + 1);
 		_health = _maxHP;
-		// 몬스터 경험치는 체력의 30% + 공격력의 50%
-		_dropExp = (_health / 3) + (_power / 2);
+		// 몬스터 경험치는 체력의 1/5 + 공격력의 1/2
+		_dropExp = (_health / 5) + (_power / 2);
 		// 몬스터 드랍골드는 경험치의 반절
 		_dropGold = _dropExp / 2;
 	}
