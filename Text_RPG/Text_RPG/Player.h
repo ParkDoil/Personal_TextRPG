@@ -63,8 +63,8 @@ public:
 		cout << "└───────────┘\n";
 		cout << "* 공격력 : " << _power << "\n";
 		cout << "* 방어력 : " << _defense << "\n";
-		cout << "* 체력 : " << _health << "/ " << _maxHP << "\n";
-		cout << "* 피로도 : " << _stamina << "/ " << _maxStamina << "\n";
+		cout << "* 체력 : " << _health << " / " << _maxHP << "\n";
+		cout << "* 피로도 : " << _stamina << " / " << _maxStamina << "\n";
 		cout << "* 소지포션 : " << _holedPostion << "개\n\n";
 	}
 	
@@ -75,13 +75,13 @@ public:
 		const int requestEXP[5] = { 100, 200, 300, 400, 500 };
 		_exp += getExp;
 
-		if (_exp >= requestEXP[_levelSection])
+		while (_exp >= requestEXP[_levelSection])
 		{
 			cout << "레벨업!!!\n";
 			Sleep(500);
 			++_level;
 			_power += 5;
-			_defense += 2;
+			_defense += 1;
 			_maxHP += 10;
 			_health = _maxHP;
 			_stamina = 0;
@@ -147,6 +147,8 @@ public:
 			}
 			Sleep(500);
 		}
+		_health = _maxHP;
+		_stamina = 0;
 	}
 
 	// 포션 사용
@@ -154,14 +156,15 @@ public:
 	{
 		if (_holedPostion >= 1)
 		{
+			cout << "포션을 사용했습니다. 체력회복 / 피로도 감소!\n";
 			_health = _maxHP;
+			_stamina = 0;
 			--_holedPostion;
 		}
 
 		else
 		{
-			cout << "포션이 없습니다. 신중하게 선택하세요.\n";
-			Sleep(300);
+			cout << "포션이 없습니다.\n";
 		}
 	}
 
@@ -176,6 +179,7 @@ public:
 		return false;
 	}
 
+
 public : // 외부에서 처리를 해야할 필드
 	int				_health = 0;
 	int				_stamina = 0;
@@ -183,11 +187,12 @@ public : // 외부에서 처리를 해야할 필드
 	int				_holedPostion = 0;
 	int				_power = 30;
 	int				_defense = 0;
+	int				_level = 1;
+	bool			_isStun = false;
 
 private: // 클래스 내부에서 처리하는 필드
 	int				_maxHP = 100;
 	const int		_maxStamina = 100;
-	int				_level = 1;
 	int				_levelSection = 0;
 	int				_exp = 0;
 	bool			_isMaxLevel = false;
